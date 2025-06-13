@@ -14,7 +14,7 @@ Kubernetes pods.
 Selebrow allows running tests in multiple browsers concurrently using prebuilt [browser images](./concepts/images.md), 
 ensuring reliable results both locally and in CI.
 
-## Key features compared to Selenoid
+## Key features
 
 * [Kubernetes backend](concepts/backend.md#kubernetes) support
 * Ability to run as [GitLab CI service](./start/gitlab-ci.md)

@@ -34,6 +34,8 @@ const config: Config = {
 
   trailingSlash: true,
 
+  plugins: [require.resolve('docusaurus-lunr-search')],
+
   presets: [
     [
       'classic',

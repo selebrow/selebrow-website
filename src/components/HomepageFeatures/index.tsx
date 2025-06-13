@@ -36,8 +36,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/gitlab.svg').default,
     description: (
       <>
-        You can start Selebrow as a <Link to="/docs/start/gitlab-ci">GitLab service</Link> and get higher test parallelism
-        values.
+        You can start Selebrow as a <Link to="/docs/start/gitlab-ci">GitLab service</Link> and get higher test parallelism.
       </>
     ),
   },
