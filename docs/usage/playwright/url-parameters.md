@@ -11,7 +11,7 @@ Example: `arg=--arg1&arg=--arg2=value`
 
 ## `env`
 
-Additional environment ariables to set in browser pod/container. corresponds to Playwright [env](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-env)
+Additional environment variables to set in browser pod/container. corresponds to Playwright [env](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-env)
 launch option.
 
 Example: `env=VAR1=val1&env=VAR2=val2`
@@ -39,3 +39,28 @@ Corresponds to Playwright [firefoxUserPrefs](https://playwright.dev/docs/api/cla
 launch option.
 
 Example: `firefoxUserPref=int.pref=1&firefoxUserPref=bool.pref=true&firefoxUserPref=str.pref=qwerty`
+
+## `resolution`
+Screen resolution to set for X Server, applies only when `headless` is set to `false`. Value format is `WIDTHxHEIGHTxBPP`.
+
+Example: `resolution=1920x1080x24`
+
+## `link`
+Browser containers' [links](https://docs.docker.com/engine/network/links/), applies to Docker backend only.
+
+Example: `link=cont1:alias1&link=cont2:alias2`
+
+## `host`
+Additional host entries to add to `/etc/hosts` inside browser pods/containers, applies to Docker backend only.
+
+Example: `host=host1:1.1.1.1&host=host2:host-gateway`
+
+## `network`
+Additional Docker networks for browser containers to connect to, applies to Docker backend only.
+
+Example: `network=net1&network=net2`
+
+## `label`
+Additional labels to set on browser pods/containers, merged with [browser catalog's labels](../../configuration/browsers.md#labels) with higher precedence.
+
+Example: `label=label-1:value1&label=label-2:value2`

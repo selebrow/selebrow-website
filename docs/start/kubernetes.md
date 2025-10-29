@@ -20,19 +20,16 @@ When installing the Selebrow Helm chart, pass the `--set selebrow.namespace=brow
 
 ## Installing the Helm chart
 
-Add the Selebrow Helm repository:
-```shell
-helm repo add selebrow https://selebrow.github.io/selebrow/selebrow
-```
+Make sure you have Helm version >= v3.8.0 installed.
 
 You can preview available chart values by running the following command:
 ```shell
-helm show values selebrow/selebrow 
+helm show values oci://ghcr.io/selebrow/helm-charts/selebrow:v1.0.1
 ```
 
 Install the Selebrow chart into the previously created namespace, providing any additional values as needed. For example:
 ```shell 
-helm install selebrow selebrow/selebrow -n selebrow \
+helm install selebrow oci://ghcr.io/selebrow/helm-charts/selebrow:v1.0.1 -n selebrow \
   --set ingress.enabled=true \
   --set selebrow.namespace=browsers \
   --set templateValues.browser.env.TZ=America/Chicago
