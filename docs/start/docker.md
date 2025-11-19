@@ -117,7 +117,11 @@ mv selebrow-linux-amd64 /usr/local/bin/selebrow
 
 <TabItem value="mac" label="macOS">
 
-TODO
+Selebrow packages are available in a separate [Homebrew Tap](https://github.com/selebrow/homebrew-tap) repository.
+
+```shell
+brew install selebrow/tap/selebrow
+```
 
 </TabItem>
 
