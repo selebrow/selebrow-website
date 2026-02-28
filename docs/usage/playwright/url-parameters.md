@@ -9,6 +9,13 @@ launch option.
 
 Example: `arg=--arg1&arg=--arg2=value`
 
+## `ignoreDefaultArg`
+
+Use this parameter to filter out specific default command-line arguments that Playwright normally passes to the browser binary. 
+Corresponds to Playwright [ignoreDefaultArgs](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-ignore-default-args) launch option.
+
+Example: `ignoreDefaultArg=--arg1&ignoreDefaultArg=--arg2=value`
+
 ## `env`
 
 Additional environment variables to set in browser pod/container. corresponds to Playwright [env](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-env)
@@ -39,6 +46,17 @@ Corresponds to Playwright [firefoxUserPrefs](https://playwright.dev/docs/api/cla
 launch option.
 
 Example: `firefoxUserPref=int.pref=1&firefoxUserPref=bool.pref=true&firefoxUserPref=str.pref=qwerty`
+
+## `launch-options`
+Launch options json object
+
+Instead of using separate parameters described above (`arg`, `headless`, etc), the whole launch options object
+can be provided in json form. Corresponds to Playwright [launch options object](https://playwright.dev/docs/api/class-browsertype#browser-type-launch).
+:::note
+Only the fields explicitly documented above (such as headless, args, etc.) are supported within this JSON object.
+If a setting is defined both as a standalone parameter and within the `launch-options` JSON object, the standalone parameter takes precedence.
+:::
+Example `launch-options={"headless": false, "args": ["--arg1", "--arg2"]}`
 
 ## `resolution`
 Screen resolution to set for X Server, applies only when `headless` is set to `false`. Value format is `WIDTHxHEIGHTxBPP`.

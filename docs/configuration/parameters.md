@@ -61,6 +61,17 @@ _String_, defaults to `https://selebrow.dev/browsers.yaml`
 
 Used when [Browser catalog](browsers.md) couldn't be loaded using source specified in [`browsers-uri`](#browsers-uri)
 
+### `image-proxy-registry`
+
+_String_, not set by default
+
+Defines a custom Docker registry prefix to be used for fetching browser images. This is primarily used in air-gapped environments or restricted corporate networks where direct access to public registries like ghcr.io is blocked.
+
+#### Example
+If set to my-proxy-registry.tld/proxy:
+* Original image: ghcr.io/selebrow/images/playwright/chromium
+* Resolved image: my-proxy-registry.tld/proxy/selebrow/images/playwright/chromium
+
 ## Kubernetes parameters
 
 ### `create-retries`
@@ -215,6 +226,35 @@ _String_, defaults to `15m`
 If a browser is older than the value specified in this parameter it's unconditionally evicted from the pool (recycled).
 
 The value must be in the [Go Duration](https://pkg.go.dev/time#Duration) format
+
+## Proxy parameters
+
+### `proxy-enabled`
+
+_Boolean_, defaults to `false`
+
+Enables the integrated HTTP proxy and redirects all browser traffic through it.
+
+### `proxy-listen`
+
+_String_, defaults to `127.0.0.1:3991`
+
+IP and port for Selebrow integrated proxy to listen on. This setting only applies when [proxy-enabled parameter](#proxy-enabled) is set to `true`.
+
+### `proxy-host`
+
+_String_, not set by default
+
+Specifies the host:port used for browser connections. This is essential for environments without direct internet access.
+If [proxy-enabled parameter](#proxy-enabled) is `true`, this parameter value is automatically set to the Selebrow service IP.
+
+### `proxy-resolve-host`
+
+_Boolean_, defaults to `false`
+
+When enabled, the proxy resolves hostnames to IP addresses before forwarding traffic. This applies only when [proxy-enabled parameter](#proxy-enabled) is `true`.
+It is particularly useful when using an upstream proxy via the `HTTP_PROXY` environment variable and you need to bypass 
+it for specific IP subnets defined in `NO_PROXY` environment variable.
 
 ## UI parameters
 

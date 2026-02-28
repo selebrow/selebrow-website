@@ -24,13 +24,22 @@ Make sure you have Helm version >= v3.8.0 installed.
 
 You can preview available chart values by running the following command:
 ```shell
-helm show values oci://ghcr.io/selebrow/helm-charts/selebrow:v1.0.7
+# this will show values for the latest Selebrow version
+helm show values oci://ghcr.io/selebrow/helm-charts/selebrow
 ```
 
 Install the Selebrow chart into the previously created namespace, providing any additional values as needed. For example:
 ```shell 
-helm install selebrow oci://ghcr.io/selebrow/helm-charts/selebrow:v1.0.7 -n selebrow \
+# this will install the latest Selebrow version
+helm install selebrow oci://ghcr.io/selebrow/helm-charts/selebrow -n selebrow \
   --set ingress.enabled=true \
   --set selebrow.namespace=browsers \
   --set templateValues.browser.env.TZ=America/Chicago
+```
+
+Helm chart version corresponds to the Selebrow application version, omitting `v` prefix. So you can install specific Selebrow version by specifying
+`--version x.x.x` parameter to Helm. For example to install Selebrow v1.4.0:
+```shell 
+# this will install the Selebrow version v1.4.0, Chart versions omits v prefix
+helm install selebrow oci://ghcr.io/selebrow/helm-charts/selebrow --version 1.4.0 ...
 ```
