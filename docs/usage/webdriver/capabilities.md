@@ -40,6 +40,16 @@ Additional environment variables to be injected into browser containers/pods, me
 ] 
 ```
 
+### `sessionTimeout`
+
+_String_
+
+The idle timeout for the session (e.g., `5m`). If no new WebDriver commands are received within this window, the session is terminated.
+The value must be in the [Go Duration](https://pkg.go.dev/time#Duration) format.
+
+See also [default-session-timeout](../../configuration/parameters.md#default-session-timeout) and 
+[max-session-timeout](../../configuration/parameters.md#max-session-timeout) parameters description.
+
 ### `flavor`
 
 _String_

@@ -31,6 +31,8 @@ Backend to use, allowed values are:
 
 When this parameter is set to `auto` or not specified, the Kubernetes backend will be selected if Selebrow was started inside a Kubernetes pod. Otherwise the Docker backend will be used.
 
+## Session parameters
+
 ### `create-timeout`
 
 _String_, defaults to `3m`
@@ -45,6 +47,20 @@ _String_, defaults to `200ms`
 
 Timeout set on connections made to browser containers. Used in browser readiness checks as well as in forwarded Webdriver/Playwright requests.
 Consider increasing it if your network environment has lag issues.
+The value must be in the [Go Duration](https://pkg.go.dev/time#Duration) format.
+
+### `default-session-timeout`
+
+_String_, defaults to `3m`
+
+Default idle timeout for Webdriver sessions. Applies when `sessionTimeout` [capability](../usage/webdriver/capabilities.md) was not set in the Webdriver session request.
+The value must be in the [Go Duration](https://pkg.go.dev/time#Duration) format.
+
+### `max-session-timeout`
+
+_String_, defaults to `3m`
+
+Maximum allowed timeout value for Webdriver `sessionTimeout` [capability](../usage/webdriver/capabilities.md). 
 The value must be in the [Go Duration](https://pkg.go.dev/time#Duration) format.
 
 ## Browsers catalog parameters
